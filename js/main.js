@@ -28,15 +28,8 @@ function loadSection(name) {
       content.innerHTML = html;
       setTimeout(() => content.classList.add("loaded"), 50);
 
-      // HOME일 때 Bandsintown 위젯 로드
-      if (name === "home") {
-        loadBandsintownWidget?.();
-      }
-
-      // ABOUT일 때 언어 토글 로드
-      if (name === "about") {
-        initLangToggle();
-      }
+      if (name === "home") loadBandsintownWidget();
+      if (name === "about") initLangToggle();
     })
     .catch(() => {
       content.innerHTML = "<p style='padding:2em;'>Failed to load section.</p>";
@@ -53,38 +46,64 @@ function initLangToggle() {
 
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-      if (btn.dataset.lang === "ko") {
-        ko.style.display = "block";
-        en.style.display = "none";
-      } else {
-        ko.style.display = "none";
-        en.style.display = "block";
-      }
+      ko.style.display = btn.dataset.lang === "ko" ? "block" : "none";
+      en.style.display = btn.dataset.lang === "en" ? "block" : "none";
     });
   });
 }
 
-// ================================
-// 🔥 Bandsintown 위젯 강제 재실행
-// ================================
+// =====================================
+//  Bandsintown (옵션 포함 + 중복 제거)
+// =====================================
 function loadBandsintownWidget() {
   const container = document.getElementById("bit-widget-container");
   if (!container) return;
 
-  // 기존 위젯 제거
   container.innerHTML = "";
 
-  // 초기화 태그 생성
   const init = document.createElement("a");
   init.className = "bit-widget-initializer";
+
+  // ---- 전체 스타일 옵션 ----
   init.setAttribute("data-artist-name", "id_15583383");
+  init.setAttribute("data-background-color", "rgba(255,255,255,1)");
+  init.setAttribute("data-separator-color", "rgba(115,207,217,1)");
+  init.setAttribute("data-text-color", "rgba(34,36,38,1)");
+  init.setAttribute("data-font", "Andalé Mono");
+  init.setAttribute("data-auto-style", "true");
+
+  // Capitalization
+  init.setAttribute("data-button-label-capitalization", "uppercase");
+  init.setAttribute("data-header-capitalization", "uppercase");
+  init.setAttribute("data-location-capitalization", "uppercase");
+  init.setAttribute("data-venue-capitalization", "uppercase");
+
+  // Dates
+  init.setAttribute("data-display-local-dates", "true");
+  init.setAttribute("data-local-dates-position", "tab");
+  init.setAttribute("data-display-past-dates", "true");
+  init.setAttribute("data-date-format", "MMM. D, YYYY");
+  init.setAttribute("data-date-orientation", "horizontal");
+  init.setAttribute("data-date-border-color", "#4A4A4A");
+  init.setAttribute("data-date-border-width", "1px");
+  init.setAttribute("data-date-border-radius", "10px");
+
+  // Ticket Button
+  init.setAttribute("data-event-ticket-text", "TICKETS");
+  init.setAttribute("data-event-ticket-cta-text-color", "rgba(255,255,255,1)");
+  init.setAttribute("data-event-ticket-cta-bg-color", "rgba(115,207,217,1)");
+  init.setAttribute("data-event-ticket-cta-border-color", "rgba(115,207,217,1)");
+
+  // Follow Button
+  init.setAttribute("data-follow-section-cta-bg-color", "rgba(115,207,217,1)");
+  init.setAttribute("data-follow-section-cta-text-color", "rgba(255,255,255,1)");
+
   container.appendChild(init);
 
-  // 기존 스크립트 삭제 (GitHub는 같은 src 재로드 안 함)
+  // 스크립트 재로딩
   const oldScript = document.getElementById("bit-script");
   if (oldScript) oldScript.remove();
 
-  // 🔥 새 스크립트 강제 로드 (캐시 우회)
   const script = document.createElement("script");
   script.id = "bit-script";
   script.src = "https://widgetv3.bandsintown.com/main.min.js?reload=" + Date.now();
