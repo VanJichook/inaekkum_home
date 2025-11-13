@@ -8,9 +8,26 @@
   <h3 style="font-family:'OtherHand'; font-size:1.6em; margin-bottom:1em;">Single Cup — releasing December 15</h3>
 
   <div id="rss-feed" class="news-card" style="margin-bottom:2em;">
-    <h4>Naver Blog</h4>
-    <p style="color:#666;">Loading latest posts…</p>
-  </div>
+  <h4>Naver Blog</h4>
+  <p id="rss-loading" style="color:#666;">Loading latest posts…</p>
+</div>
+
+<script>
+fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/inaekkum.xml")
+  .then(res => res.json())
+  .then(data => {
+    const feed = document.getElementById("rss-feed");
+    const latest = data.items[0];
+    feed.innerHTML = `
+      <h4>Naver Blog</h4>
+      <a href="${latest.link}" target="_blank">${latest.title}</a>
+      <p style='color:#888; font-size:0.9em;'>${new Date(latest.pubDate).toLocaleDateString()}</p>
+    `;
+  })
+  .catch(() => {
+    document.getElementById("rss-loading").innerText = "우석이가 삐졌나 봐요. 블로그를 닫았네요. 그저 오류일 수도 있고요.";
+  });
+</script>
 
   <div class="news-group" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.2em;">
     <div class="news-card">
@@ -30,7 +47,7 @@
 
     <div class="news-card">
       <h4>Related</h4>
-      <a href="https://vanjichook.github.io/">☁️ VANJICHOOK</a>
+      <a href="https://vanjichook.github.io/">☁️ vanjichook</a>
       <a href="https://equipboard.com/daydreamers">🎛️ Equipboard – Gear List</a>
     </div>
   </div>
