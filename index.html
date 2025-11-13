@@ -203,7 +203,7 @@
     <!-- bandsintown iframe가 화면 전체를 덮는 버그 방지를 위해 wrapper 적용됨 -->
 
     <!-- 위젯 스크립트 로드 -->
-    <script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"></script>: 외부 위젯이 자동으로 공연 목록 로드 -->
+    <script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"></script>
     <div id="bit-widget-container"></div>
     <!-- bandsintown iframe가 화면 전체를 덮는 버그 방지를 위해 wrapper 적용됨 -->
 
@@ -307,12 +307,11 @@
 	data-bit-logo-color="rgba(34,36,38,1)"
 	
     ></a>
-  </section>
+  </div>
 
 <!-- ============================================================= -->
 <!-- ABOUT SECTION -->
-<section id="about">
-  <img src="assets/images/inaekkum_logo.png" alt="logo" style="height:60px; margin-bottom:1em;">
+<div id="about-dupfix"><img src="assets/images/inaekkum_logo.png" alt="logo" style="height:60px; margin-bottom:1em;">
 
   <!-- ============================================================= -->
 <section id="about">
@@ -515,8 +514,7 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/i
   });
 </script>
 <script>
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
+  document.addEventListener('contextmenu', function(e){e.preventDefault(); let v=document.createElement('div'); v.textContent='흘러간 꿈에게 안부를!'; v.style.position='fixed'; v.style.top='50%'; v.style.left='50%'; v.style.transform='translate(-50%, -50%)'; v.style.padding='1em 2em'; v.style.background='rgba(255,255,255,0.9)'; v.style.border='1px solid #ccc'; v.style.borderRadius='12px'; v.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'; v.style.fontFamily='OtherHand'; v.style.zIndex='9999'; document.body.appendChild(v); setTimeout(()=>{v.style.opacity='0'; setTimeout(()=>{v.remove();},500);},1000); });
     alert('흘러간 꿈에게 안부를!');
   });
 </script>
