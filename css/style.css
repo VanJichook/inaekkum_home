@@ -88,4 +88,14 @@ nav button.active {
   font-weight: 600;
   margin-top: 0.5em;
 }
+.news-card h4 {
+  margin-bottom: 0.4em;
+  font-family: 'OtherHand';
+}
 
+.news-card a {
+  display: block;
+  padding: 0.3em 0;
+  color: #333;
+  text-decoration: none;
+}
