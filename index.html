@@ -27,5 +27,47 @@
   <main id="content"></main>
 
   <script src="/inaekkum_official/js/main.js"></script>
+
+  <script>
+    // 오른쪽 클릭 방지
+    document.addEventListener('contextmenu', function(e){
+      e.preventDefault();
+      let v = document.createElement('div');
+      v.textContent = '흘러간 꿈에게 안부를!';
+      v.style.position = 'fixed';
+      v.style.top = '50%';
+      v.style.left = '50%';
+      v.style.transform = 'translate(-50%, -50%)';
+      v.style.padding = '1em 2em';
+      v.style.background = 'rgba(255,255,255,0.9)';
+      v.style.border = '1px solid #ccc';
+      v.style.borderRadius = '12px';
+      v.style.boxShadow = '0 4px 10px rgba(0,0,0,0.15)';
+      v.style.fontFamily = 'OtherHand';
+      v.style.zIndex = '9999';
+      document.body.appendChild(v);
+      setTimeout(()=>{v.style.opacity='0'; setTimeout(()=>{v.remove();},500);},1000);
+    });
+
+    // 텍스트 선택 방지
+    document.addEventListener('selectstart', e => e.preventDefault());
+
+    // 이미지 드래그 방지
+    document.addEventListener('dragstart', e => e.preventDefault());
+
+    // 단축키 방지
+    document.addEventListener('keydown', function(e){
+      if (e.keyCode === 123) e.preventDefault();
+      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) e.preventDefault();
+      if (e.ctrlKey && e.key === 'u') e.preventDefault();
+      if (e.ctrlKey && e.key === 's') e.preventDefault();
+    });
+
+    // 모바일 길게 누르기 방지
+    document.addEventListener('touchstart', function(e){
+      if (e.touches.length > 1) e.preventDefault();
+    });
+  </script>
+
 </body>
 </html>
