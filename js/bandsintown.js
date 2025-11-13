@@ -102,3 +102,10 @@ function loadBandsintownWidget() {
   script.src = "https://widgetv3.bandsintown.com/main.min.js";
   document.body.appendChild(script);
 }
+
+// HOME 로드 시 자동 실행
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.querySelector("#home")) {
+    loadBandsintownWidget();
+  }
+});
