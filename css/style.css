@@ -1,1 +1,63 @@
+/* 기본 레이아웃 */
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #333;
+  background: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.logo {
+  height: 40px;
+  position: absolute;
+  left: 1em;
+  top: 0.6em;
+}
+
+/* NAV */
+nav {
+  width: 100%;
+  text-align: center;
+  padding: 1.2em 0;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 50;
+  border-bottom: 1px solid #eee;
+}
+
+nav button {
+  background: none;
+  border: none;
+  margin: 0 1em;
+  font-size: 1em;
+  cursor: pointer;
+  color: #666;
+  transition: 0.25s;
+}
+
+nav button:hover,
+nav button.active {
+  color: #000;
+  font-weight: 600;
+}
+
+/* MAIN CONTENT (섹션 로딩 영역) */
+#content {
+  padding: 2em;
+  max-width: 900px;
+  margin: auto;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+#content.loaded {
+  opacity: 1;
+}
+
+/* 반응형 */
+@media(max-width:600px) {
+  nav button { margin: 0 0.5em; }
+}
 
