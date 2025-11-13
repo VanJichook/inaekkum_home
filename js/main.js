@@ -19,7 +19,7 @@ function loadSection(name) {
   const content = document.getElementById("content");
   content.classList.remove("loaded");
 
-  fetch(`/inaekkum_official/sections/${name}.html`)
+  fetch(`sections/${name}.html`)
     .then(res => res.text())
     .then(html => {
       content.innerHTML = html;
