@@ -513,5 +513,11 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/i
     document.getElementById('rss-feed').innerHTML='<h4>Naver Blog</h4><p>Failed to load feed.</p>';
   });
 </script>
+<script>
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert('흘러간 꿈에게 안부를!');
+  });
+</script>
 </body>
 </html>
