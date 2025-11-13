@@ -26,10 +26,16 @@ function loadSection(name) {
     .then(res => res.text())
     .then(html => {
       content.innerHTML = html;
+
+      // 섹션 불러온 후 슬쩍 딜레이 두고 fade-in
       setTimeout(() => content.classList.add("loaded"), 50);
+
+      // ★ HOME일 때만 Bandsintown 초기화
+      if (name === "home") {
+        loadBandsintownWidget();
+      }
     })
     .catch(() => {
       content.innerHTML = "<p style='padding:2em;'>Failed to load section.</p>";
     });
 }
-
