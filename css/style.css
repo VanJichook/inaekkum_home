@@ -49,11 +49,10 @@ nav {
 
 .logo {
   height: 42px;
-  position: static;      /* absolute 제거 */
+  position: static;
   margin-right: auto;
 }
 
-/* 메뉴 그룹 */
 .menu {
   display: flex;
   gap: 1em;
@@ -74,16 +73,13 @@ nav button.active {
   font-weight: 600;
 }
 
-/* 모바일에서 로고 숨기기 */
 @media(max-width:600px) {
   .logo {
     display: none;
   }
-
   .menu {
     gap: 0.6em;
   }
-
   nav button {
     font-size: 0.9em;
   }
@@ -114,7 +110,6 @@ nav button.active {
   margin-top: 1.5em;
 }
 
-/* gallery image */
 .gallery img {
   width: 100%;
   border-radius: 8px;
@@ -171,4 +166,20 @@ nav button.active {
 
 .contact-block p a:hover {
   text-decoration: underline;
+}
+
+/* ==========================================
+   ★ 카테고리 전용 오버라이드 (업데이트 v1.1)
+     - 폰트 크기 업
+     - 컬러 #73cfd9 적용
+========================================== */
+nav button,
+h1, h2, h3, h4 {
+  font-size: 1.25em !important;
+  color: #73cfd9 !important;
+}
+
+nav button:hover,
+nav button.active {
+  color: #4ab1bd !important;
 }
