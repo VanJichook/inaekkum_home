@@ -1,4 +1,4 @@
-// main.js (v2.0) with RSS integration
+// main.js (v2.0) with RSS integration + Bandsintown initialization
 
 // 페이지 로드시 기본 HOME 로드
 window.addEventListener("DOMContentLoaded", () => {
@@ -31,12 +31,47 @@ function loadSection(name) {
       content.innerHTML = html;
       setTimeout(() => content.classList.add("loaded"), 50);
 
+      if (name === "home") {
+        // HOME 로드 직후 Bandsintown 위젯 초기화
+        setTimeout(() => {
+          loadBandsintownWidget();
+        }, 80);
+      }
+
       if (name === "about") initLangSwitch();
       if (name === "news") loadRSS();
     })
     .catch(() => {
       content.innerHTML = "<p style='padding:2em;'>Failed to load section.</p>";
     });
+}
+
+// --------------------------
+// Bandsintown Loader
+// --------------------------
+function loadBandsintownWidget() {
+  const container = document.getElementById("bit-widget-container");
+  if (!container) return;
+
+  // 기존 위젯 초기화
+  container.innerHTML = "";
+
+  // 새 initializer 삽입
+  const init = document.createElement("a");
+  init.className = "bit-widget-initializer";
+  init.setAttribute("data-artist-name", "id_15583383");
+  container.appendChild(init);
+
+  // 기존 스크립트 제거
+  const oldScript = document.getElementById("bit-script");
+  if (oldScript) oldScript.remove();
+
+  // 새 스크립트 강제 로드
+  const script = document.createElement("script");
+  script.id = "bit-script";
+  script.src = "https://widgetv3.bandsintown.com/main.min.js?reload=" + Date.now();
+  script.async = true;
+  document.body.appendChild(script);
 }
 
 // --------------------------
