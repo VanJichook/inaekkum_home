@@ -148,34 +148,3 @@ function closeAlbumModal() {
   const modal = document.getElementById('album-modal');
   if (modal) modal.style.display = 'none';
 }
-
-// --------------------------
-// Bandsintown
-// --------------------------
-function loadBandsintownWidget() {
-  const container = document.getElementById("bit-widget-container");
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  const init = document.createElement("a");
-  init.className = "bit-widget-initializer";
-  init.setAttribute("data-artist-name", "id_15583383");
-  init.setAttribute("data-display-limit", "all");
-  init.setAttribute("data-display-local-dates", "true");
-  init.setAttribute("data-local-dates-position", "tab");
-  init.setAttribute("data-background-color", "#ffffff");
-  init.setAttribute("data-text-color", "#000000");
-  init.setAttribute("data-separator-color", "#73cfd9");
-
-  container.appendChild(init);
-
-  const oldScript = document.getElementById("bit-script");
-  if (oldScript) oldScript.remove();
-
-  const script = document.createElement("script");
-  script.id = "bit-script";
-  script.src = "https://widgetv3.bandsintown.com/main.min.js?reload=" + Date.now();
-  script.async = true;
-  document.body.appendChild(script);
-}
