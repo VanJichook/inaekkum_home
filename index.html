@@ -1,76 +1,34 @@
-<!-- Inaekkum v2.0 – index.html (draft v1) -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inaekkum – Home</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/inaekkum_official/assets/images/home_01.jpeg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inaekkum — Official Website</title>
+
+  <link rel="stylesheet" href="/inaekkum_official/css/style.css">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-      background: #fff;
-      color: #222;
-    }
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2em 2em;
-      box-sizing: border-box;
-    }
-    nav a {
-      margin-left: 1.8em;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    /* --- HERO 영역 --- */
-    .hero {
-      width: 100vw;
-      height: 90vh;
-      background: url('assets/home_main.jpg') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      color: #fff;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 0.4em;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .hero p {
-      font-size: 1.4rem;
-      opacity: 0.9;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    @font-face {
+      font-family: "OtherHand";
+      src: url("/inaekkum_official/fonts/OtherHand-Medium.woff2") format("woff2");
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="logo">inaekkum</div>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="about.html">ABOUT</a>
-      <a href="music.html">MUSIC</a>
-      <a href="news.html">NEWS</a>
-      <a href="contact.html">CONTACT</a>
-    </nav>
-  </header>
+  <nav>
+    <img src="/inaekkum_official/assets/images/inaekkum_logo.png" class="logo">
+    <button data-section="home" class="active">HOME</button>
+    <button data-section="about">ABOUT</button>
+    <button data-section="news">NEWS</button>
+    <button data-section="music">MUSIC</button>
+    <button data-section="contact">CONTACT</button>
+  </nav>
 
-  <section class="hero">
-    <h1>We're always there</h1>
-    <p>우린 언제나 여기에 있어</p>
-  </section>
+  <main id="content"></main>
+
+  <script src="/inaekkum_official/js/main.js"></script>
+
 </body>
 </html>
