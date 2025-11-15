@@ -285,6 +285,7 @@ kr: `
 Music: 이내꿈
 Featuring: 빈달
 작곡: 민우석
+작사: 허유미
   </pre>
   `,
   en: `
@@ -293,6 +294,7 @@ Featuring: 빈달
 Music: inaekkum
 Featuring: Bindal
 Composed by Min Wooseok
+Lyrics: Heo Yumi
   </pre>
   `,
 },
