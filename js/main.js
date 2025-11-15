@@ -141,8 +141,7 @@ function initLangSwitch() {
 async function openAlbumModal(key) {
   const modal = document.getElementById("album-modal");
   const box = document.getElementById("albumModalInner");
-  const db = await window.albumDataPromise;
-  const data = db[key];
+  const data = window.albumData[key];
   if (!data) return;
 
   let trackHTML = data.tracks
