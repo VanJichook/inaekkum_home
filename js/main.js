@@ -31,13 +31,6 @@ function loadSection(name) {
       content.innerHTML = html;
       setTimeout(() => content.classList.add("loaded"), 50);
 
-      if (name === "home") {
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            loadBandsintownWidget();
-          });
-        });
-      }
       if (name === "about") initLangSwitch();
       if (name === "news") loadRSS();
     })
