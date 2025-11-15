@@ -25,7 +25,7 @@ jobs:
         run: npm install rss-parser
 
       - name: Run fetch script
-        run: node scripts/fetch_rss.js
+        run: node js/fetch_rss.js
 
       - name: Commit and push RSS JSON
         run: |
