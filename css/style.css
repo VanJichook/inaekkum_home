@@ -3,7 +3,7 @@
 ================================ */
 @font-face {
   font-family: 'OtherHand';
-  src: url('/inaekkum_official/assets/fonts/otherhand.woff2') format('woff2');
+  src: url('/inaekkum_official/assets/fonts/OtherHand-Medium.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -18,6 +18,17 @@ body {
   background: #fff;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* GLOBAL FONT OVERRIDES */
+h1, h2, h3, h4, nav button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #666;
+  transition: 0.25s;
+  font-family: 'OtherHand', sans-serif;
 }
 
 /* ================================
