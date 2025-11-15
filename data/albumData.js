@@ -241,7 +241,7 @@ Composition/Lyrics/Arrangement: Min Wooseok (More details pending)
 },
 
 
-daegucomp: {
+compilation_dg: {
 cover: "/inaekkum_official/assets/albums/daegu_comp.jpg",
 title: "대구인디음악연대기 2022",
 date: "2023 · Compilation",
@@ -269,19 +269,27 @@ Release: Various
 },
 
 
-butterfly: {
+compilation_butterfly: {
 cover: "/inaekkum_official/assets/albums/butterfly.jpg",
 title: "나비가 된 불꽃",
 date: "2024 · Compilation",
 tracks: [ { en: "April and November", kr: "4월과 11월", vid: null } ],
 kr: `
-<h3>크레딧 (KR)</h3>
-<pre>
+  <h3>크레딧 (KR)</h3>
+  <pre>
 Music: 이내꿈
 Featuring: 빈달
 작곡: 민우석
-</pre>
-`
+  </pre>
+  `,
+  en: `
+  <h3>Credits (EN)</h3>
+  <pre>
+Music: inaekkum
+Featuring: Bindal
+Composed by Min Wooseok
+  </pre>
+  `,
 },
 
 }; // ← window.albumData 객체 마지막 닫기
