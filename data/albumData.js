@@ -281,5 +281,7 @@ Music: 이내꿈
 Featuring: 빈달
 작곡: 민우석
 </pre>
-`,
+`
 },
+
+}; // ← window.albumData 객체 마지막 닫기
