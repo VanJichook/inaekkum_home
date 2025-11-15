@@ -97,16 +97,7 @@
 </head>
 
 <body>
-  <header>
-    <div class="logo">inaekkum</div>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="about.html">ABOUT</a>
-      <a href="music.html">MUSIC</a>
-      <a href="news.html">NEWS</a>
-      <a href="contact.html">CONTACT</a>
-    </nav>
-  </header>
+  <!-- header removed for SPA duplication fix -->
 
   <!-- NEWS SECTION -->
 <section id="news">
@@ -126,15 +117,21 @@
     .then(res => res.json())
     .then(data => {
       const feed = document.getElementById("rss-feed");
-      const latest = data.items[0];
-      feed.innerHTML = `
-        <h4>Naver Blog</h4>
-        <a href="${latest.link}" target="_blank">${latest.title}</a>
-        <p style='color:#888; font-size:0.9em;'>${new Date(latest.pubDate).toLocaleDateString()}</p>
-      `;
+      feed.innerHTML = `<h4>Naver Blog</h4>`;
+
+      const items = data.items.slice(0, 3);
+      items.forEach(post => {
+        const div = document.createElement('div');
+        div.className = 'rss-item';
+        div.innerHTML = `
+          <a href="${post.link}" target="_blank">${post.title}</a>
+          <p style='color:#888; font-size:0.9em;'>${new Date(post.pubDate).toLocaleDateString()}</p>
+        `;
+        feed.appendChild(div);
+      });
     })
     .catch(() => {
-      document.getElementById("rss-loading").innerText = "우석이가 삐졌나 봐요. 블로그를 닫았네요. 그저 오류일 수도 있고요.";
+      document.getElementById("rss-loading").innerText = "RSS를 불러오지 못했어요. 잠시 후 다시 시도해주세요.";
     });
   </script>
 
