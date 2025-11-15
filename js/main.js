@@ -193,7 +193,6 @@ function openTrackVideo(id) {
   const box = document.getElementById("albumModalInner");
 
   box.innerHTML = `
-    <button onclick=\"closeAlbumModal()\" class="close-btn">×</button>
     <iframe width="100%" height="360" src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>
   `;
 
