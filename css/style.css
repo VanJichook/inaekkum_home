@@ -1,5 +1,5 @@
 /* ================================
-   FONT: OtherHand (custom font)
+   FONT: OtherHand
 ================================ */
 @font-face {
   font-family: 'OtherHand';
@@ -14,32 +14,27 @@
 body {
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
-  color: #2a2a2a; /* ← 기존 #333 → 더 진한 회색 */
+  color: #2a2a2a;
   background: #fff;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* GLOBAL FONT OVERRIDES */
 h1, h2, h3, h4, nav button {
-  background: none;
-  border: none;
-  font-size: 1em;
-  cursor: pointer;
-  color: #73cfd9 !important;
-  transition: 0.25s;
   font-family: 'OtherHand', sans-serif;
+  color: #73cfd9;
+  border: none;
+  background: none;
 }
 
 /* ================================
-   NAV + LOGO
+   NAVIGATION
 ================================ */
 nav {
   width: 100%;
   padding: 0.8em 1.5em;
   background: #fff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #eee;
   position: sticky;
@@ -47,10 +42,16 @@ nav {
   z-index: 50;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5em;
+}
+
 .logo {
   height: 42px;
-  position: static;
-  margin-right: auto;
+  width: auto;
+  object-fit: contain;
 }
 
 .menu {
@@ -59,24 +60,20 @@ nav {
 }
 
 nav button {
-  background: none;
-  border: none;
   font-size: 1em;
   cursor: pointer;
+  color: #73cfd9;
   transition: 0.25s;
 }
 
 nav button:hover,
 nav button.active {
-  color: #4ab1bd !important;
+  color: #4ab1bd;
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .logo {
     display: none;
-  }
-  .menu {
-    gap: 0.6em;
   }
   nav button {
     font-size: 0.9em;
@@ -84,14 +81,14 @@ nav button.active {
 }
 
 /* ================================
-   CONTENT
+   CONTENT AREA
 ================================ */
 #content {
   padding: 2em;
   max-width: 900px;
   margin: auto;
   opacity: 0;
-  transition: opacity .4s ease;
+  transition: opacity 0.4s ease;
 }
 
 #content.loaded {
@@ -99,11 +96,11 @@ nav button.active {
 }
 
 /* ================================
-   GALLERY
+   GALLERY GRID
 ================================ */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.2em;
   margin-top: 1.5em;
 }
@@ -118,7 +115,7 @@ nav button.active {
 ================================ */
 .members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.2em;
   margin-top: 1em;
 }
@@ -132,7 +129,7 @@ nav button.active {
   text-align: center;
   font-weight: 600;
   margin-top: 0.5em;
-  color: #2a2a2a; /* 본문과 일관되게 */
+  color: #2a2a2a;
 }
 
 /* ================================
@@ -141,14 +138,14 @@ nav button.active {
 .news-card h4 {
   margin-bottom: 0.4em;
   font-family: 'OtherHand';
-  color: #73cfd9 !important;
+  color: #73cfd9;
 }
 
 .news-card a {
   display: block;
   padding: 0.3em 0;
-  color: #2a2a2a; /* 기존 #333 → 통합 */
   text-decoration: none;
+  color: #2a2a2a;
 }
 
 /* ================================
@@ -157,14 +154,17 @@ nav button.active {
 .contact-block h3 {
   margin-bottom: 0.4em;
   font-family: 'OtherHand';
-  color: #73cfd9 !important;
+  color: #73cfd9;
 }
 
-.contact-block p a {
+.contact-block a {
   color: #2a2a2a;
   text-decoration: none;
 }
 
-.contact-block p a:hover {
+.contact-block a:hover {
   text-decoration: underline;
 }
+
+/* ================================
+   INTRO SPLASH
