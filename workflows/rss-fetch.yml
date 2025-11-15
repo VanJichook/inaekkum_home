@@ -2,8 +2,8 @@ name: Fetch Naver RSS
 
 on:
   schedule:
-    - cron: "0 * * * *"  # 매시간 0분마다 실행
-  workflow_dispatch:     # 수동 실행도 가능
+    - cron: "0 * * * *"   # 매시간 0분
+  workflow_dispatch:       # 수동 실행
   push:
     branches:
       - main
@@ -21,8 +21,8 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install RSS parser
-        run: npm install rss-parser
+      - name: Install dependencies
+        run: npm install
 
       - name: Run fetch script
         run: node js/fetch_rss.js
