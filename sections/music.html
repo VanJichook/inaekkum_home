@@ -1,4 +1,6 @@
 <!-- MUSIC SECTION -->
+<style>@media (max-width:600px){ .album-grid { grid-template-columns:1fr !important; }}</style>
+
 <section id="music" style="max-width:900px; margin:auto; padding:2em 1.2em;">
 
   <h1 style="font-family:'OtherHand'; font-size:2.8em; text-align:center; margin-bottom:0.4em;">MUSIC</h1>
@@ -68,88 +70,9 @@
       
       <button onclick="closeAlbumModal()" style="position:absolute; top:12px; right:12px; background:none; border:none; font-size:1.8em; cursor:pointer;">×</button>
 
-      <div style="text-align:right; margin-bottom:1em;">
-  <label style="font-size:0.9em; cursor:pointer;">
-    <input type="checkbox" id="albumLangSwitch" style="transform:scale(1.2); margin-right:6px;"> ENG
-  </label>
-</div>
-<div id="albumModalInner"></div>
+      <div id="albumModalInner"></div>
 
     </div>
   </div>
 
 </section>
-
-<script>
-function openAlbumModal(key) {
-  const modal = document.getElementById('album-modal');
-  const container = document.getElementById('albumModalInner');
-
-  const albums = {
-    organic: `
-      <h2 style="font-family:'OtherHand'; font-size:2em; margin-bottom:0.4em;">Organic Tender</h2>
-      <p style="color:#666; margin-bottom:1.2em;">2025 · Full-length Album</p>
-      <img src="/inaekkum_official/assets/albums/organic_tender.jpg" style="width:100%; border-radius:8px; margin-bottom:1.5em;">
-
-      <h3 style="font-family:'OtherHand'; font-size:1.6em;">Credits (KR)</h3>
-      <pre style="white-space:pre-wrap; margin:0.5em 0 2em;">민우석 – 작사, 작곡, 편곡, 보컬, 베이스
-김태양 – 기타, 톤 디자인
-최원민 – 신스, 키보드
-프로듀싱: 민우석
-믹스: 구슬한
-마스터링: XXXX Studio
-      </pre>
-
-      <h3 style="font-family:'OtherHand'; font-size:1.6em;">Credits (EN)</h3>
-      <pre style="white-space:pre-wrap; margin:0.5em 0 2em;">Min Woo Seok – Lyrics, Composition, Arrangement, Vocal, Bass
-Kim Taeyang – Guitar, Tone Design
-Choi Wonmin – Synth, Keys
-Produced by Min Woo Seok
-Mixed by Gooseulhan
-Mastered at XXXX Studio
-      </pre>
-
-      <h3 style="font-family:'OtherHand'; font-size:1.6em;">Videos</h3>
-      <div style="margin-top:1em;">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-      </div>
-    `,
-
-    singlecup: `
-      <h2 style="font-family:'OtherHand'; font-size:2em; margin-bottom:0.4em;">Single Cup</h2>
-      <p style="color:#666; margin-bottom:1.2em;">2025 · Digital Single</p>
-      <img src="/inaekkum_official/assets/albums/single_cup.jpg" style="width:100%; border-radius:8px; margin-bottom:1.5em;">
-
-      <h3 style="font-family:'OtherHand'; font-size:1.6em;">Credits (KR)</h3>
-      <pre style="white-space:pre-wrap; margin:0.5em 0 2em;">민우석 – 작사, 작곡, 편곡, 프로듀싱, 믹스디렉션
-김태양 – 기타
-최원민 – 신스
-드럼: 이왕동
-M/V 감독: 민우석
-촬영: 아키로우 / 현구
-      </pre>
-
-      <h3 style="font-family:'OtherHand'; font-size:1.6em;">Credits (EN)</h3>
-      <pre style="white-space:pre-wrap; margin:0.5em 0 2em;">Min Woo Seok – Lyrics, Composition, Arrangement, Production, Mix Direction
-Kim Taeyang – Guitar
-Choi Wonmin – Synth
-Drums – Lee Wangdong
-M/V Director – Min Woo Seok
-Cinematography – Akiro / Hyun-gu
-      </pre>
-
-      <h3 style="font-family:'OtherHand'; font-size:1.6em;">Videos</h3>
-      <div style="margin-top:1em;">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
-      </div>
-    `
-  };
-
-  container.innerHTML = albums[key];
-  modal.style.display = 'flex';
-}
-
-function closeAlbumModal() {
-  document.getElementById('album-modal').style.display = 'none';
-}
-</script>
