@@ -31,7 +31,7 @@ function loadSection(name) {
       content.innerHTML = html;
       setTimeout(() => content.classList.add("loaded"), 50);
 
-      if (name === "home") loadBandsintownWidget();
+      if (name === "home") setTimeout(loadBandsintownWidget, 50);
       if (name === "about") initLangSwitch();
       if (name === "news") loadRSS();   // 🔥 RSS 통합
     })
