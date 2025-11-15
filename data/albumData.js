@@ -228,14 +228,14 @@ tracks: [
 kr: `
 <h3>크레딧 (KR)</h3>
 <pre>
-작곡/작사: 민우석
+작곡: 민우석
 편곡: 민우석, 백지현
 </pre>
 `,
 en: `
 <h3>Credits (EN)</h3>
 <pre>
-Composition/Lyrics/Arrangement: Min Wooseok (More details pending)
+Composition/Arrangement: Min Wooseok (More details pending)
 </pre>
 `,
 },
