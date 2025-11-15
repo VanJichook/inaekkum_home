@@ -1,17 +1,151 @@
-<!-- ABOUT SECTION -->
+<!-- Inaekkum v2.0 – about.html (draft v1) -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inaekkum – About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-<section id="about">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.65;
+    }
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2em 2em;
+      box-sizing: border-box;
+    }
+    nav a {
+      margin-left: 1.8em;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* 상단 로고 제거 버전이므로 header .logo 숨김 */
+    .logo { display: none; }
+
+    .about-wrap {
+      max-width: 880px;
+      margin: 4em auto;
+      padding: 0 1.5em;
+    }
+
+    .title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 0.3em;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2em;
+      color: #666;
+    }
+
+    .section {
+      margin-bottom: 3em;
+    }
+    .section h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.6em;
+    }
+    .section p {
+      margin: 0.4em 0;
+    }
+
+    .members {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5em;
+      margin-top: 1em;
+    }
+
+    .member-card {
+      padding: 1.2em;
+      border-radius: 8px;
+      background: #fafafa;
+      border: 1px solid #eee;
+    }
+    .member-card h4 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.3em;
+    }
+    .member-card p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0.3em 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ABOUT SECTION -->
+
+<section id="about" style="max-width:880px; margin:4em auto; padding:0 1.5em;">
 
   <!-- 로고 -->
   <div style="text-align:center; margin-bottom:1.5em;">
     <img src="/inaekkum_official/assets/images/inaekkum_logo.png" alt="logo" style="height:60px;">
   </div>
 
-  <!-- 언어 토글 버튼 -->
-  <div id="langToggle" style="text-align:right; margin-bottom:1.2em;">
-    <button class="lang-btn" data-lang="ko">한국어</button>
-    <button class="lang-btn" data-lang="en">ENG</button>
+  <!-- 밴드 소개 (한/영 토글) -->
+  <div id="introKO">
+    <h2 style="font-family:'OtherHand'; margin-top:0.3em;">이내꿈 소개</h2>
+    <p>
+      이내꿈(inaekkum)은 신스록·포스트록을 기반으로 상실, 회복, 관계, 진심의 감정을 탐구하는 대구 기반 3인조 밴드입니다.<br>
+      우리의 음악은 '사람에게 닿는 서사'를 중심에 두며, 무대와 기록, 영상, 글이 하나의 세계관으로 이어지도록 스스로 만들어가는 DIY 방식을 지향합니다.<br>
+      우린 불안 속에서도 한 걸음을 내딛고 싶은 사람들에게, 작은 안부와 숨을 건네는 음악을 하고 있습니다.
+    </p>
   </div>
+
+  <div id="introEN" style="display:none;">
+    <h2 style="font-family:'OtherHand'; margin-top:0.3em;">About inaekkum</h2>
+    <p>
+      inaekkum is a synth‑rock and post‑rock band based in Daegu, South Korea. Their work explores themes of loss, recovery, relationships, and sincerity.<br>
+      Their music centers on human stories—turning personal emotions into sound, text, and performance, building a consistent world of their own through a DIY‑driven process.<br>
+      The band offers quiet comfort to those trying to take a step forward in moments of uncertainty.
+    </p>
+  </div>
+
+  <!-- 언어 토글 (스위치 하나로 전체 전환) -->
+  <div style="text-align:right; margin-bottom:1.5em;">
+    <label style="font-size:0.95em; color:#444; cursor:pointer;">
+      <input type="checkbox" id="langSwitch" style="transform:scale(1.2); margin-right:6px; cursor:pointer;">
+      ENG
+    </label>
+  </div>
+
+  <script>
+    const switchBtn = document.getElementById('langSwitch');
+
+    function toggleLang() {
+      const isEN = switchBtn.checked;
+
+      // 전체 한국어 영역
+      document.querySelectorAll('#introKO, #aboutKO').forEach(el => {
+        el.style.display = isEN ? 'none' : 'block';
+      });
+
+      // 전체 영어 영역
+      document.querySelectorAll('#introEN, #aboutEN').forEach(el => {
+        el.style.display = isEN ? 'block' : 'none';
+      });
+    }
+
+    switchBtn.addEventListener('change', toggleLang);
+  </script>
 
   <!-- 한국어 버전 -->
   <div id="aboutKO">
@@ -44,9 +178,9 @@
     <h2 style="font-family:'OtherHand';">inaekkum</h2>
 
     <p>
-      The band was formed by vocalist Min Woo Seok when he was twenty-one, not even a year after losing his father.<br><br>
+      The band was formed by vocalist Min Wooseok when he was twenty-one, not even a year after losing his father.<br><br>
 
-      Keyboardist Choi Wonmin was juggling night-shift convenience store work and a rotating job at a snack factory to pay for his studies.<br>
+      Choi Wonmin was juggling night-shift convenience store work and a rotating job at a snack factory to pay for his studies.<br>
       During late-night calls and weekends, he and Woo Seok began sketching the blueprint of the band.<br><br>
 
       Before the group officially took shape, guitarist Kim Taeyang enlisted in the military, leaving a promise:<br>
@@ -59,12 +193,12 @@
 
       They released several compilation tracks and singles, leading to their first full-length album “Organic Tender” in March 2025.<br><br>
 
-      Before the album’s release, several early members left. Still, Inaekkum moved forward quietly and later welcomed drummer Lee Wangdong, who had supported them during a long period of rebuilding.<br><br>
+      Before the album’s release, several early members left. Still, inaekkum moved forward quietly and later welcomed drummer Lee Wangdong, who had supported them during a long period of rebuilding.<br><br>
 
       “Single Cup,” releasing on December 15, marks both an epilogue to their debut album and a new beginning.<br>
       Every member participated in production, and Woo Seok directed the music video from storyboard to final cut.<br><br>
 
-      Inaekkum offers a quiet greeting to anyone trying to take the next step through uncertainty.
+      inaekkum offers a quiet greeting to anyone trying to take the next step through uncertainty.
     </p>
   </div>
 
@@ -74,7 +208,7 @@
   <h3 style="font-family:'OtherHand';">Timeline / Gallery</h3>
   <p style="color:#666;">Performance, studio, rehearsal, travel — moments captured.</p>
 
-  <div class="gallery">
+  <div class="gallery" style="display:grid; grid-template-columns:1fr 1fr; gap:1em;">
     <img src="/inaekkum_official/assets/sample1.jpg" alt="">
     <img src="/inaekkum_official/assets/sample2.jpg" alt="">
     <img src="/inaekkum_official/assets/sample3.jpg" alt="">
@@ -84,28 +218,75 @@
   <hr style="margin:2.5em 0;">
 
   <!-- 멤버 -->
-  <h3 style="font-family:'OtherHand';">Members</h3>
-
-  <div class="members-grid">
+  <h3 style="font-family:'OtherHand'; margin-top:3em; margin-bottom:0.5em;">Members</h3>
+  
+  <!-- 한국어 멤버 -->
+  <div id="membersKO" class="members-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:2em; text-align:center; margin-top:1.5em;">
     <div>
-      <img src="/inaekkum_official/assets/images/member_wuoseok.jpg">
-      <p>Min Woo Seok</p>
+      <img src="/inaekkum_official/assets/images/member_wuoseok.jpg" style="width:100%; border-radius:6px; margin-bottom:0.6em;">
+      <p style="margin:0; font-weight:700; font-size:1.05rem;">민우석</p>
+      <p style="margin:0; color:#555; font-size:0.85rem;">보컬 · 베이스 · 프로듀서</p>
     </div>
 
     <div>
-      <img src="/inaekkum_official/assets/images/member_wonmin.jpg">
-      <p>Choi Won Min</p>
+      <img src="/inaekkum_official/assets/images/member_wonmin.jpg" style="width:100%; border-radius:6px; margin-bottom:0.6em;">
+      <p style="margin:0; font-weight:700; font-size:1.05rem;">최원민</p>
+      <p style="margin:0; color:#555; font-size:0.85rem;">키보드 · 운영 · 아카이브</p>
     </div>
 
     <div>
-      <img src="/inaekkum_official/assets/images/member_taeyang.jpg">
-      <p>Kim Tae Yang</p>
+      <img src="/inaekkum_official/assets/images/member_taeyang.jpg" style="width:100%; border-radius:6px; margin-bottom:0.6em;">
+      <p style="margin:0; font-weight:700; font-size:1.05rem;">김태양</p>
+      <p style="margin:0; color:#555; font-size:0.85rem;">기타 · 사운드 테크</p>
     </div>
 
     <div>
-      <img src="/inaekkum_official/assets/images/member_wangdong.jpg">
-      <p>Lee Wang Dong</p>
+      <img src="/inaekkum_official/assets/images/member_wangdong.jpg" style="width:100%; border-radius:6px; margin-bottom:0.6em;">
+      <p style="margin:0; font-weight:700; font-size:1.05rem;">이왕동</p>
+      <p style="margin:0; color:#555; font-size:0.85rem;">드럼 · 라이브 디렉션</p>
     </div>
   </div>
 
+  <!-- 영어 멤버 -->
+  <div id="membersEN" class="members-grid" style="display:none; grid-template-columns:1fr 1fr; gap:2em; text-align:center; margin-top:1.5em;">
+    <div>
+      <img src="/inaekkum_official/assets/images/member_wuoseok.jpg" style="width:100%; border-radius:6px; margin-bottom:0.6em;">
+      <p style="margin:0; font-weight:700; font-size:1.05rem;">Min Woo Seok</p>
+      <p style="margin:0; color:#555; font-size:0.85rem;">Vocal · Bass · Producer</p>
+    </div>
+
+    <div>
+      <img src="/inaekkum_official/assets/images/member_wonmin.jpg" style="width:100%; border-radius:6px; margin-bottom:0.6em;">
+      <p style="margin:0; font-weight:700; font-size:1.05rem;">Choi Won Min</p>
+      <p style="margin:0; color:#555; font-size:0.85rem;">Keys · Operations · Archive</p>
+    </div>
+
+    <div>
+      <img src="/inaekkum_official/assets/images/member_taeyang.jpg" style="width:100%; border-radius:6px; margin-bottom:0.6em;">
+      <p style="margin:0; font-weight:700; font-size:1.05rem;">Kim Tae Yang</p>
+      <p style="margin:0; color:#555; font-size:0.85rem;">Guitar · Sound Tech</p>
+    </div>
+
+    <div>
+      <img src="/inaekkum_official/assets/images/member_wangdong.jpg" style="width:100%; border-radius:6px; margin-bottom:0.6em;">
+      <p style="margin:0; font-weight:700; font-size:1.05rem;">Lee Wang Dong</p>
+      <p style="margin:0; color:#555; font-size:0.85rem;">Drums · Live Direction</p>
+    </div>
+  </div>
+
+  <script>
+    // 멤버 KO/EN 전환도 스위치에 연결
+    function toggleLangMembers(isEN) {
+      document.getElementById('membersKO').style.display = isEN ? 'none' : 'grid';
+      document.getElementById('membersEN').style.display = isEN ? 'grid' : 'none';
+    }
+
+    switchBtn.addEventListener('change', () => {
+      const isEN = switchBtn.checked;
+      toggleLangMembers(isEN);
+    });
+  </script>
+
 </section>
+</body>
+</html>
