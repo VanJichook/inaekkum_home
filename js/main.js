@@ -1,55 +1,74 @@
-// main.js
+// main.js (v2.0)
 
-// 페이지 로드시 기본 home 로드
+// 페이지 로드시 기본 HOME 로드
 window.addEventListener("DOMContentLoaded", () => {
   loadSection("home");
 });
 
-// 네비게이션 버튼 클릭 처리
+// 네비게이션 버튼 처리
 document.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON" && e.target.dataset.section) {
     const section = e.target.dataset.section;
 
-    document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll("nav button")
+      .forEach(btn => btn.classList.remove("active"));
     e.target.classList.add("active");
 
     loadSection(section);
   }
 });
 
-// 섹션 AJAX 로드
+// --------------------------
+// 섹션 로더
+// --------------------------
 function loadSection(name) {
   const content = document.getElementById("content");
   content.classList.remove("loaded");
 
-  fetch(`https://vanjichook.github.io/inaekkum_official/sections/${name}.html?v=5`)
+  fetch(`https://vanjichook.github.io/inaekkum_official/sections/${name}.html?v=6`)
     .then(res => res.text())
     .then(html => {
       content.innerHTML = html;
       setTimeout(() => content.classList.add("loaded"), 50);
 
       if (name === "home") loadBandsintownWidget();
-      if (name === "about") initLangToggle();
+      if (name === "about") initLangSwitch();
     })
     .catch(() => {
       content.innerHTML = "<p style='padding:2em;'>Failed to load section.</p>";
     });
 }
 
-// ABOUT 언어 토글 기능
-function initLangToggle() {
-  const ko = document.getElementById("aboutKO");
-  const en = document.getElementById("aboutEN");
-  const buttons = document.querySelectorAll(".lang-btn");
+// --------------------------
+// ABOUT: 언어 스위치 통합
+// --------------------------
+function initLangSwitch() {
+  const switchBtn = document.getElementById("langSwitch");
+  if (!switchBtn) return;
 
-  if (!ko || !en) return;
+  const introKO = document.getElementById("introKO");
+  const introEN = document.getElementById("introEN");
+  const aboutKO = document.getElementById("aboutKO");
+  const aboutEN = document.getElementById("aboutEN");
+  const membersKO = document.getElementById("membersKO");
+  const membersEN = document.getElementById("membersEN");
 
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      ko.style.display = btn.dataset.lang === "ko" ? "block" : "none";
-      en.style.display = btn.dataset.lang === "en" ? "block" : "none";
-    });
+  function applyLang(isEN) {
+    if (introKO) introKO.style.display = isEN ? "none" : "block";
+    if (introEN) introEN.style.display = isEN ? "block" : "none";
+
+    if (aboutKO) aboutKO.style.display = isEN ? "none" : "block";
+    if (aboutEN) aboutEN.style.display = isEN ? "block" : "none";
+
+    if (membersKO) membersKO.style.display = isEN ? "none" : "grid";
+    if (membersEN) membersEN.style.display = isEN ? "grid" : "none";
+  }
+
+  switchBtn.addEventListener("change", () => {
+    applyLang(switchBtn.checked);
   });
+
+  applyLang(switchBtn.checked);
 }
 
 // =====================================
