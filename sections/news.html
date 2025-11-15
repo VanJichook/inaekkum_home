@@ -113,27 +113,43 @@
   </div>
 
   <script>
-  fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/inaekkum.xml")
-    .then(res => res.json())
-    .then(data => {
-      const feed = document.getElementById("rss-feed");
-      feed.innerHTML = `<h4>Naver Blog</h4>`;
+  // RSS loader (integrated from rss.js)
+  function loadRSS() {
+    const box = document.getElementById("rss-feed");
+    if (!box) return;
 
-      const items = data.items.slice(0, 3);
-      items.forEach(post => {
-        const div = document.createElement('div');
-        div.className = 'rss-item';
-        div.innerHTML = `
-          <a href="${post.link}" target="_blank">${post.title}</a>
-          <p style='color:#888; font-size:0.9em;'>${new Date(post.pubDate).toLocaleDateString()}</p>
-        `;
-        feed.appendChild(div);
+    fetch("https://api.rss2json.com/v1/api.json?api_key=w0incah4phyqyumgktjatozt6ip0gj1fpwk1mipw&rss_url=https://rss.blog.naver.com/inaekkum.xml")
+      .then(r => r.json())
+      .then(data => {
+        if (!data.items) {
+          box.innerHTML = '<h4>Naver Blog</h4><p>No posts available.</p>';
+          return;
+        }
+
+        box.innerHTML = '<h4>Naver Blog</h4>';
+
+        data.items.slice(0, 3).forEach(item => {
+          const wrap = document.createElement('div');
+          wrap.className = 'rss-item';
+          const date = new Date(item.pubDate).toLocaleDateString('ko-KR');
+
+          wrap.innerHTML = `
+            <a href="${item.link}" target="_blank">• ${item.title}</a>
+            <span style="display:block; color:#888; font-size:0.85em; margin-left:0.2em;">
+              ${date}
+            </span>
+          `;
+
+          box.appendChild(wrap);
+        });
+      })
+      .catch(() => {
+        box.innerHTML = '<h4>Naver Blog</h4><p>Failed to load feed.</p>';
       });
-    })
-    .catch(() => {
-      document.getElementById("rss-loading").innerText = "RSS를 불러오지 못했어요. 잠시 후 다시 시도해주세요.";
-    });
-  </script>
+  }
+
+  loadRSS();
+</script>
 
   <div class="news-group" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.2em;">
     <div class="news-card">
