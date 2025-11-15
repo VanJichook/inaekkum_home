@@ -19,7 +19,7 @@
 <body>
   <nav>
     <a href="/inaekkum_official/index.html" class="logo-link">
-      <img src="/inaekkum_official/assets/images/inaekkum_logo.png" class="logo" style="height:32px; margin-right:1.2em;">
+      <img src="/inaekkum_official/assets/images/inaekkum_logo.png" class="logo" width="120" height="40" loading="lazy" style="height:32px; margin-right:1.2em;">
     </a>
     
     <button data-section="home" class="active">HOME</button>
@@ -33,6 +33,9 @@
   /* 모바일 네비게이션 대응 */
   @media (max-width: 480px) {
     nav {
+      display:flex;
+      align-items:center;
+      justify-content:center;
       display:flex;
       flex-wrap:nowrap;
       overflow-x:auto;
@@ -81,18 +84,26 @@
     <p style="margin-top:1em; font-size:1.25em; color:#666; opacity:0; animation:introFadeUp 2.2s ease forwards 0.3s;">우린 언제나 여기에 있어</p>
   </div>
 
-  <main id="content"></main>
+  <main id="content" aria-live="polite"></main>
 
   <script src="/inaekkum_official/js/main.js"></script>
 
 <script>
 // Intro fade → load HOME
 window.addEventListener("DOMContentLoaded", () => {
+  if (typeof loadSection === 'function') loadSection('home');
   const splash = document.getElementById("intro-splash");
   const nav = document.querySelector('nav');
   if(nav) nav.style.opacity = 0;
 
   // 2초 후 페이드아웃
+  // splash → home 전환
+  splash.addEventListener('animationend', () => {
+    splash.style.opacity = 0;
+    if (nav) nav.style.opacity = 1;
+    setTimeout(() => splash.style.display = 'none', 800);
+  });
+
   setTimeout(() => {
     splash.style.opacity = 0;
     if(nav) nav.style.opacity = 1;
