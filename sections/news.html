@@ -1,33 +1,142 @@
-<!-- NEWS SECTION -->
+<!-- Inaekkum v2.0 – news.html (draft v1) -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inaekkum – News</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fff;
+      color: #222;
+    }
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2em 2em;
+      box-sizing: border-box;
+    }
+    nav a {
+      margin-left: 1.8em;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* --- 메인 비주얼 --- */
+    .hero {
+      width: 100%;
+      height: 70vh;
+      background: url('assets/news_main.jpg') center/cover no-repeat;
+      border-radius: 0;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      padding: 2em 4em;
+      box-sizing: border-box;
+      color: #fff;
+      text-shadow: 0 6px 12px rgba(0,0,0,0.35);
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin: 0 0 0.3em 0;
+      font-weight: 700;
+    }
+
+    /* --- 섹션 --- */
+    section {
+      max-width: 900px;
+      margin: 4em auto;
+      padding: 0 1.2em;
+      box-sizing: border-box;
+    }
+
+    .feed-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.5em;
+      font-weight: 600;
+    }
+
+    /* Fan Chat 버튼 */
+    .chat-card {
+      display: inline-block;
+      padding: 1em 1.4em;
+      background: #f7f7f7;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      margin-top: 0.5em;
+      border: 1px solid #eee;
+    }
+
+    /* RSS 영역 */
+    .rss-item {
+      margin-bottom: 1.4em;
+      padding-bottom: 1em;
+      border-bottom: 1px solid #ddd;
+    }
+    .rss-item a {
+      color: #111;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .rss-desc {
+      margin-top: 0.4em;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">inaekkum</div>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="music.html">MUSIC</a>
+      <a href="news.html">NEWS</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <!-- NEWS SECTION -->
 <section id="news">
   
-
   <img src="/inaekkum_official/assets/images/singlecup_wide.png" 
        style="width:100%;  border-radius:8px; margin:1.5em 0;">
 
-  <h3 style="font-family:'OtherHand'; font-size:1.6em; margin-bottom:1em;">Single Cup — releasing December 15</h3>
+  <h3 style="font-family:'OtherHand', cursive; font-size:2.2em; margin-bottom:1em; letter-spacing:-0.5px;">Single Cup — releasing December 15</h3>
 
   <div id="rss-feed" class="news-card" style="margin-bottom:2em;">
-  <h4>Naver Blog</h4>
-  <p id="rss-loading" style="color:#666;">Loading latest posts…</p>
-</div>
+    <h4>Naver Blog</h4>
+    <p id="rss-loading" style="color:#666;">Loading latest posts…</p>
+  </div>
 
-<script>
-fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/inaekkum.xml")
-  .then(res => res.json())
-  .then(data => {
-    const feed = document.getElementById("rss-feed");
-    const latest = data.items[0];
-    feed.innerHTML = `
-      <h4>Naver Blog</h4>
-      <a href="${latest.link}" target="_blank">${latest.title}</a>
-      <p style='color:#888; font-size:0.9em;'>${new Date(latest.pubDate).toLocaleDateString()}</p>
-    `;
-  })
-  .catch(() => {
-    document.getElementById("rss-loading").innerText = "우석이가 삐졌나 봐요. 블로그를 닫았네요. 그저 오류일 수도 있고요.";
-  });
-</script>
+  <script>
+  fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/inaekkum.xml")
+    .then(res => res.json())
+    .then(data => {
+      const feed = document.getElementById("rss-feed");
+      const latest = data.items[0];
+      feed.innerHTML = `
+        <h4>Naver Blog</h4>
+        <a href="${latest.link}" target="_blank">${latest.title}</a>
+        <p style='color:#888; font-size:0.9em;'>${new Date(latest.pubDate).toLocaleDateString()}</p>
+      `;
+    })
+    .catch(() => {
+      document.getElementById("rss-loading").innerText = "우석이가 삐졌나 봐요. 블로그를 닫았네요. 그저 오류일 수도 있고요.";
+    });
+  </script>
 
   <div class="news-group" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.2em;">
     <div class="news-card">
@@ -35,11 +144,11 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/i
       <a href="https://www.instagram.com/inaekkum_official">📷 Instagram</a>
       <a href="https://x.com/inaekkum">🅧 X</a>
       <a href="https://www.youtube.com/@inaekkum">▶️ YouTube</a>
-      <a href="https://rss.blog.naver.com/inaekkum.xml">📝 Naver Blog (RSS)</a>
+      <a href="https://open.kakao.com/o/ghAOuSTf">💬 Fan Chat (Kakao)</a>
     </div>
 
     <div class="news-card">
-      <h4>Music Platforms</h4>
+      <h4>Music Platforms</h4></h4>
       <a href="https://music.apple.com/kr/artist/%EC%9D%B4%EB%82%B4%EA%BF%88/1555426625">🍎 Apple Music</a>
       <a href="https://inaekkum.bandcamp.com/">💿 Bandcamp</a>
       <a href="https://music.youtube.com/playlist?list=OLAK5uy_kTZ94QxTc-xbQWIslybO4eqeufnOOKZmk">🎵 YouTube Music</a>
@@ -52,3 +161,5 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/i
     </div>
   </div>
 </section>
+</body>
+</html>
