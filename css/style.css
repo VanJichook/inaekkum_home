@@ -103,7 +103,8 @@ nav button.active {
   margin-top: 1.5em;
 }
 
-data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw== .gallery img {
+/* gallery image */
+.gallery img {
   width: 100%;
   border-radius: 8px;
 }
