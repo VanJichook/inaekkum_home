@@ -1,4 +1,16 @@
-/* 기본 레이아웃 */
+/* ================================
+   FONT: OtherHand (custom font)
+================================ */
+@font-face {
+  font-family: 'OtherHand';
+  src: url('/inaekkum_official/assets/fonts/otherhand.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ================================
+   GLOBAL
+================================ */
 body {
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
@@ -8,29 +20,37 @@ body {
   overflow-x: hidden;
 }
 
-.logo {
-  height: 40px;
-  position: absolute;
-  left: 1em;
-  top: 0.6em;
-}
-
-/* NAV */
+/* ================================
+   NAV + LOGO
+================================ */
 nav {
   width: 100%;
-  text-align: center;
-  padding: 1.2em 0;
+  padding: 0.8em 1.5em;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
-  background: #fff;
   z-index: 50;
-  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  height: 42px;
+  position: static;      /* absolute 제거 */
+  margin-right: auto;
+}
+
+/* 메뉴 그룹 */
+.menu {
+  display: flex;
+  gap: 1em;
 }
 
 nav button {
   background: none;
   border: none;
-  margin: 0 1em;
   font-size: 1em;
   cursor: pointer;
   color: #666;
@@ -43,7 +63,24 @@ nav button.active {
   font-weight: 600;
 }
 
-/* MAIN CONTENT (섹션 로딩 영역) */
+/* 모바일에서 로고 숨기기 */
+@media(max-width:600px) {
+  .logo {
+    display: none;
+  }
+
+  .menu {
+    gap: 0.6em;
+  }
+
+  nav button {
+    font-size: 0.9em;
+  }
+}
+
+/* ================================
+   CONTENT
+================================ */
 #content {
   padding: 2em;
   max-width: 900px;
@@ -56,10 +93,9 @@ nav button.active {
   opacity: 1;
 }
 
-/* 반응형 */
-@media(max-width:600px) {
-  nav button { margin: 0 0.5em; }
-}
+/* ================================
+   GALLERY
+================================ */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
@@ -67,11 +103,14 @@ nav button.active {
   margin-top: 1.5em;
 }
 
-.gallery img {
+data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw== .gallery img {
   width: 100%;
   border-radius: 8px;
 }
 
+/* ================================
+   MEMBERS
+================================ */
 .members-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
@@ -83,11 +122,16 @@ nav button.active {
   width: 100%;
   border-radius: 8px;
 }
+
 .members-grid p {
   text-align: center;
   font-weight: 600;
   margin-top: 0.5em;
 }
+
+/* ================================
+   NEWS
+================================ */
 .news-card h4 {
   margin-bottom: 0.4em;
   font-family: 'OtherHand';
@@ -99,6 +143,10 @@ nav button.active {
   color: #333;
   text-decoration: none;
 }
+
+/* ================================
+   CONTACT
+================================ */
 .contact-block h3 {
   margin-bottom: 0.4em;
   font-family: 'OtherHand';
@@ -112,4 +160,3 @@ nav button.active {
 .contact-block p a:hover {
   text-decoration: underline;
 }
-
