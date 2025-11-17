@@ -1,78 +1,44 @@
-<!-- MUSIC SECTION -->
-<style>@media (max-width:600px){ .album-grid { grid-template-columns:1fr !important; }}</style>
-
+<!-- Updated MUSIC SECTION with responsive classes -->
 <section id="music" style="max-width:900px; margin:auto; padding:2em 1.2em;">
-
   <h1 style="font-family:'OtherHand'; font-size:2.8em; text-align:center; margin-bottom:0.4em;">MUSIC</h1>
   <p style="text-align:center; color:#666; margin-bottom:2.5em;">Discography · Credits · Visuals</p>
 
-  <!-- 앨범 그리드 (Latest → Oldest) -->
-  <div class="album-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1.8em;">
-
-    <!-- Single Cup (2025) -->
-    <div class="album-card" onclick="openAlbumModal('singlecup')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/single_cup.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">Single Cup (2025 · Single)</p>
+  <!-- Responsive Album Grid -->
+  <div class="album-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.6em;">
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('singlecup')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/single_cup.jpg"><p>Single Cup (2025 · Single)</p>
     </div>
-
-    <!-- Organic Tender (2025) -->
-    <div class="album-card" onclick="openAlbumModal('organic')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/organic_tender.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">Organic Tender (2025 · LP)</p>
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('organic')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/organic_tender.jpg"><p>Organic Tender (2025 · LP)</p>
     </div>
-
-    <!-- Emergence (2022) -->
-    <div class="album-card" onclick="openAlbumModal('emergence')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/emergence.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">발현 (Emergence) (2022 · EP)</p>
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('emergence')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/emergence.jpg"><p>발현 (Emergence) (2022 · EP)</p>
     </div>
-
-    <!-- Corona blue (2022) -->
-    <div class="album-card" onclick="openAlbumModal('coronablue')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/corona_blue.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">Corona blue (2022 · Single)</p>
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('coronablue')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/corona_blue.jpg"><p>Corona blue (2022 · Single)</p>
     </div>
-
-    <!-- Like A Movie (2023) -->
-    <div class="album-card" onclick="openAlbumModal('likeamovie')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/like_a_movie.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">Like A Movie (2023 · Single)</p>
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('likeamovie')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/like_a_movie.jpg"><p>Like A Movie (2023 · Single)</p>
     </div>
-
-    <!-- 용가리도 하늘을 날고 싶어 (2021) -->
-    <div class="album-card" onclick="openAlbumModal('dragon')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/dragon_fly.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">용가리도 하늘을 날고 싶어 (2021 · Single)</p>
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('dragon')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/dragon_fly.jpg"><p>용가리도 하늘을 날고 싶어 (2021 · Single)</p>
     </div>
-
-    <!-- Seed (2021 · Film OST) -->
-    <div class="album-card" onclick="openAlbumModal('seed')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/seed.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">Seed (2021 · OST)</p>
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('seed')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/seed.jpg"><p>Seed (2021 · OST)</p>
     </div>
-
-    <!-- Compilations Section -->
-    <div class="album-card" onclick="openAlbumModal('compilation_dg')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/daegu_comp.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">대구인디음악연대기 (2022 · Compilation)</p>
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('compilation_dg')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/daegu_comp.jpg"><p>대구인디음악연대기 (2022 · Compilation)</p>
     </div>
-
-    <div class="album-card" onclick="openAlbumModal('compilation_butterfly')" style="cursor:pointer; text-align:center;">
-      <img src="/inaekkum_official/assets/albums/butterfly.jpg" style="width:100%; border-radius:8px;">
-      <p style="margin-top:0.6em; font-weight:600;">나비: 나비가 된 불꽃 (2024 · Compilation)</p>
+    <div class="album-card" style="cursor:pointer; text-align:center;" onclick="openAlbumModal('compilation_butterfly')">
+      <img style="width:100%; height:auto; border-radius:8px;" src="/inaekkum_official/assets/albums/butterfly.jpg"><p>나비: 나비가 된 불꽃 (2024 · Compilation)</p>
     </div>
-
   </div>
 
-  <!-- 앨범 모달 -->
-  <div id="album-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.65); backdrop-filter:blur(6px); z-index:999; align-items:center; justify-content:center; padding:1em;">
-    <div id="album-modal-content" style="background:white; max-width:700px; width:100%; padding:2em; border-radius:10px; overflow-y:auto; max-height:90vh; position:relative;">
-      
-      <button onclick="closeAlbumModal()" style="position:absolute; top:12px; right:12px; background:none; border:none; font-size:1.8em; cursor:pointer;">×</button>
-
+  <!-- Modal -->
+  <div id="album-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.65); backdrop-filter:blur(6px); z-index:999; align-items:center; justify-content:center; padding:1em;" class="album-modal">
+    <div id="album-modal-content" class="album-modal-content">
+      <button onclick="closeAlbumModal()" class="modal-close">×</button>
       <div id="albumModalInner"></div>
-
     </div>
   </div>
-
 </section>
