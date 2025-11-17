@@ -162,7 +162,7 @@ function loadRSS() {
     });
 }
 
-// ABOUT LANG SWITCH ---------------------------------------------
+// ABOUT LANG SWITCH ------------------------------------------------
 function initLangSwitch() {
   const sw = document.getElementById("langSwitch");
   if (!sw) return;
@@ -174,7 +174,7 @@ function initLangSwitch() {
   const membersKO = document.getElementById("membersKO");
   const membersEN = document.getElementById("membersEN");
 
-  function apply(isEN) {
+  function applyLang(isEN) {
     if (introKO) introKO.style.display = isEN ? "none" : "block";
     if (introEN) introEN.style.display = isEN ? "block" : "none";
 
@@ -185,8 +185,11 @@ function initLangSwitch() {
     if (membersEN) membersEN.style.display = isEN ? "grid" : "none";
   }
 
-  sw.addEventListener("change", () => apply(sw.checked));
-  apply(sw.checked);
+  // 토글 변화 적용
+  sw.addEventListener("change", () => applyLang(sw.checked));
+
+  // 첫 로딩 시 적용
+  applyLang(sw.checked);
 }
 
 // ----------------------------------------------------------------
