@@ -224,10 +224,9 @@ Mastering: 도정회@Soundmax
 Artwork: 이현우
   </pre>
 `,
-
-en: `
-  <h3>Credits (EN)</h3>
-  <pre>
+  en: `
+    <h3>Credits (EN)</h3>
+    <pre>
 Lyrics/Composition: MIN WOOSEOK
 Arrangement: MIN WOOSEOK, PARK JIN, CHOI SUNGWOOk, CHOI WONMIN
 Recording: MGMC H STUDIO, HAN HYEMI
@@ -235,7 +234,8 @@ Mixing: KIM TAEYANG
 Mastering: DO JOUNGHOE@Soundmax
 Artwork: LEE HYUNWOO
   </pre>
-`,
+    `,
+  },
 
 seed: {
 cover: "/inaekkum_official/assets/albums/seed.jpg",
@@ -251,14 +251,14 @@ kr: `
 편곡: 민우석, 백지현
   </pre>
 `,
-en: `
-  <h3>Credits (EN)</h3>
-  <pre>
+  en: `
+    <h3>Credits (EN)</h3>
+    <pre>
 Composition: MIN WOOSEOK
 Arrangement: MIN WOOSEOK, BAEK JIHYUN
   </pre>
-`,
-
+    `,
+  },
 
 compilation_dg: {
 cover: "/inaekkum_official/assets/albums/daegu_comp.jpg",
@@ -275,17 +275,17 @@ Vocal: 이내꿈
 발매: Various
   </pre>
 `,
-en: `
-  <h3>Credits (EN)</h3>
-  <pre>
+  en: `
+    <h3>Credits (EN)</h3>
+    <pre>
 Vocal: INAEKKUM
 Composition: MIN WOOSEOK
 Lyrics: MIN WOOSEOK
 Produced by CLUB HEAVY × INDIE053
 Release: Various
   </pre>
-`,
-
+    `,
+  },
 
 compilation_butterfly: {
 cover: "/inaekkum_official/assets/albums/butterfly.jpg",
@@ -301,14 +301,15 @@ Featuring: 빈달
 작사: 허유미
   </pre>
 `,
-en: `
-  <h3>Credits (EN)</h3>
-  <pre>
+  en: `
+    <h3>Credits (EN)</h3>
+    <pre>
 Music: INAEKKUM
 Featuring: BINDAL
 Composition: MIN WOOSEOK
 Lyrics: HEO YUMI
   </pre>
-`,
-
+    `,
+  },
+  
 }; // ← window.albumData 객체 마지막 닫기
