@@ -123,26 +123,6 @@
     </label>
   </div>
 
-  <script>
-    const switchBtn = document.getElementById('langSwitch');
-
-    function toggleLang() {
-      const isEN = switchBtn.checked;
-
-      // 전체 한국어 영역
-      document.querySelectorAll('#introKR, #aboutKO').forEach(el => {
-        el.style.display = isEN ? 'none' : 'block';
-      });
-
-      // 전체 영어 영역
-      document.querySelectorAll('#introEN, #aboutEN').forEach(el => {
-        el.style.display = isEN ? 'block' : 'none';
-      });
-    }
-
-    switchBtn.addEventListener('change', toggleLang);
-  </script>
-
   <!-- 한국어 버전 -->
 <div id="aboutKO">
   <h2 style="font-family:'OtherHand';">이내꿈 (inaekkum)</h2>
@@ -272,18 +252,19 @@
     </div>
   </div>
 
-  <script>
-    // 멤버 KO/EN 전환도 스위치에 연결
-    function toggleLangMembers(isEN) {
-      document.getElementById('membersKO').style.display = isEN ? 'none' : 'grid';
-      document.getElementById('membersEN').style.display = isEN ? 'grid' : 'none';
-    }
+<script>
+  const switchBtn = document.getElementById('langSwitch'); // ★ 반드시 필요
 
-    switchBtn.addEventListener('change', () => {
-      const isEN = switchBtn.checked;
-      toggleLangMembers(isEN);
-    });
-  </script>
+  function toggleLangMembers(isEN) {
+    document.getElementById('membersKO').style.display = isEN ? 'none' : 'grid';
+    document.getElementById('membersEN').style.display = isEN ? 'grid' : 'none';
+  }
+
+  switchBtn.addEventListener('change', () => {
+    const isEN = switchBtn.checked;
+    toggleLangMembers(isEN);
+  });
+</script>
 
 </section>
 </body>
