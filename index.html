@@ -175,6 +175,11 @@ nav button.active {
   text-decoration: underline;
 }
 
+@keyframes modalFadeUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 /* ================================
    INTRO SPLASH
 ================================ */
@@ -242,21 +247,18 @@ nav button { padding:0.5em 0.9em; }
 }
 /* === Modal Font Boost Overrides === */
 #album-modal-content {
+  animation: modalFadeUp 0.45s ease;
+
   background:#ffffff !important;
   max-width:900px !important;
   width:95% !important;
-  padding:2.6em 2.2em !important;
+  padding:2.4em 2em !important;
   border-radius:18px !important;
   max-height:88vh !important;
   overflow-y:auto !important;
   margin:auto !important;
-  top:50% !important;
-  transform:translateY(-50%) !important;
+  position:relative !important; /* ★ 절대 중앙 고정 제거 → 부모 flex가 중앙 배치 */
 }
-.album-meta h2 { font-size:2.4em !important; font-weight:700; color:#222; }
-.album-meta p { font-size:1.2em !important; color:#444; }
-.track-title-en { font-size:1.15em !important; color:#222; font-weight:600; }
-.track-title-kr { font-size:1em !important; color:#555; }
 /* === VIDEO POPUP (NEW) === */
 #video-popup {
   position:fixed;
