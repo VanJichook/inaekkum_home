@@ -239,10 +239,10 @@ Artwork: LEE HYUNWOO
 
 seed: {
 cover: "/inaekkum_official/assets/albums/seed.jpg",
-title: "Seed OST",
+title: "제22회 대구단편영화제 주제곡",
 date: "2021 · OST",
 tracks: [
-{ en: "Seed (OST)", kr: "Seed (OST)", vid: "90rUO7xc1KA" }
+{ en: "Seed", kr: "씨앗", vid: "90rUO7xc1KA" }
 ],
 kr: `
   <h3>크레딧 (KR)</h3>
